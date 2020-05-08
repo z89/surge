@@ -8,13 +8,21 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-balham.css";
+import { Router } from 'react-router-dom';
+import { createBrowserHistory } from "history";
 
+const history = createBrowserHistory();
+const rootElement = document.getElementById('root');
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Router history={history}>
+    <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root')
+  </Router>,
+  
+  rootElement
+  
 );
 
 // If you want your app to work offline and load faster, you can change
