@@ -2,31 +2,34 @@ const API_URL = 'http://131.181.190.87:3000'
 const UserAPI = props => {
   const url = `${API_URL}/user/` + props;
 
-  if(props === 'login') {
-    return fetch(url, {
-      method: "POST",
-      headers: {aceept: "application/json", "Content-Type": "application/json" },
-      body: JSON.stringify({ email: localStorage.getItem('email'), password: localStorage.getItem('password') })
+    fetch(url,{
+                method: "POST",
+                headers: {aceept: "application/json", "Content-Type": "application/json" },
+                body: JSON.stringify({ email: localStorage.getItem('email'), password: localStorage.getItem('password') })
+              })
+    .then((res) => { 
+      switch(res.status) {
+        case 401:
+          console.log("401 detected"); 
+          break;
+        case 200: 
+        console.log("awesome");
+        
+      }
+
+      return res.json() 
     })
-    .then((res) => res.json())
-    .then((res) => {
-      console.table((res));
-      //localStorage.setItem("token", res.token); 
+    .then((jsonData) => {
+      console.table(jsonData);
     })
-  } else if (props === 'register') {
-    return fetch(url, {
-      method: "POST",
-      headers: {aceept: "application/json", "Content-Type": "application/json" },
-      body: JSON.stringify({ email: localStorage.getItem('email'), password: localStorage.getItem('password') })
-    })
-    .then((res) => res.json())
-    .then((res) => {
-      console.table((res));
-      //localStorage.setItem("token", res.token); 
-    })
-  } else {
-    console.log("ero");
-  }
+    .catch((err) => {
+      // handle error for example
+      // console.error(err);
+      console.log("asdasdaswtf");
+      
+    });
+    
+
 
 }
 
