@@ -28,7 +28,7 @@ function App() {
         <Route exact path="/stocks" component={Stocks} />
       </div>
      
-      
+     
      
     </Router>
   );
