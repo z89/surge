@@ -6,7 +6,7 @@ const UserAPI = props => {
     return fetch(url, {
       method: "POST",
       headers: {aceept: "application/json", "Content-Type": "application/json" },
-      body: JSON.stringify({ email: localStorage.getItem('lemail'), password: localStorage.getItem('lpassword') })
+      body: JSON.stringify({ email: localStorage.getItem('email'), password: localStorage.getItem('password') })
     })
     .then((res) => res.json())
     .then((res) => {
@@ -17,7 +17,7 @@ const UserAPI = props => {
     return fetch(url, {
       method: "POST",
       headers: {aceept: "application/json", "Content-Type": "application/json" },
-      body: JSON.stringify({ email: localStorage.getItem('remail'), password: localStorage.getItem('rpassword') })
+      body: JSON.stringify({ email: localStorage.getItem('email'), password: localStorage.getItem('password') })
     })
     .then((res) => res.json())
     .then((res) => {

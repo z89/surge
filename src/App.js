@@ -6,8 +6,9 @@ import Register from './components/Auth'
 import Stocks from './components/Stocks'
 
 
-function App() {
 
+function App() {
+  
   return (
     <Router>
       <div>
@@ -16,6 +17,7 @@ function App() {
         <Link to={'/login'}>Login</Link>
         <Link to={'/register'}>Register</Link>
         <Link to={'/stocks'}>Stocks</Link>
+      
         <hr/>
       </div>
      
@@ -30,6 +32,7 @@ function App() {
      
     </Router>
   );
+  
 }
-
 export default App;
+

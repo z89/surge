@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { Button } from 'reactstrap';
 import UserAPI from "./UserAPI";
-import { useLocation } from 'react-router-dom'
+//import { useLocation } from 'react-router-dom'
 
-let result, storageEmail, storagePassword, capitalizedResult;
-function GetResults() {
-  result = (useLocation().pathname).substr(1);
-  result.charAt(0).toUpperCase() + result.slice(1);
-  storageEmail = result + 'Email';
-  storagePassword = result + 'Password';
-}
+
+let result, storageEmail, storagePassword, resultBinary;
+
 
 export default function Auth() {
- 
+
+
   const [email, setEmail] = useState(localStorage.getItem(storageEmail) || ''); 
   const [password, setPassword] = useState(localStorage.getItem(storagePassword) || '');
 
+  storageEmail = 'email';
+  storagePassword = 'password';
+ 
   useEffect(() => {localStorage.setItem(storageEmail, email)})  // Use useEffect to store email value in localStorage
   const updateEmail = props => {setEmail(props.target.value)} // update the email with the event (props) argument 
 
@@ -30,20 +30,25 @@ export default function Auth() {
     setPassword('');
   }
   
-  return(
+  return (
     <div>
-      <h1>{capitalizedResult}</h1>
+      <h1>{result}</h1>
+      <p><a href="/register">{resultBinary ? 'Not a member? Register now!' : null}</a></p>
       <form>
-        <label htmlFor="email">Email: </label>
-        <input onChange={updateEmail} value={email} id="email" />
+        <label htmlFor="email">{resultBinary ? 'Use your email to login: ' : 'Use your email to register: '}</label><br/>
+        <input onChange={updateEmail} value={email} id="email" /><br/>
 
-        <label htmlFor="password">Password: </label>
-        <input type="password" value={password} onChange={updatePassword} id="password" />
+        <label htmlFor="password">Enter Password: </label><br/>
+        <input type="password" value={password} onChange={updatePassword} id="password" /><br/>
 
-        <Button onClick={() => {UserAPI(result)}} color="success">{capitalizedResult} user</Button>  
+        <Button onClick={() => {UserAPI(result)}} color="success">{result} user</Button><br/> 
         <Button onClick={clearStorage}  color="danger">Clear storage from register details</Button>
       </form>
        
     </div>
   )
+
+  
 }
+  
+  
