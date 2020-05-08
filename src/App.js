@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from './components/Home'
-import Login from './components/Login'
-import Register from './components/Register'
+import Login from './components/Auth'
+import Register from './components/Auth'
 import Stocks from './components/Stocks'
 
 
