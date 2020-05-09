@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { Button } from 'reactstrap';
 import { AgGridReact } from "ag-grid-react";
 
@@ -25,16 +25,38 @@ function Stocks() {
       };
     })
     )
-    .then(stocks => setRowData(stocks));
+    .then(stocks => setRowData(stocks))
+    .catch((err) => {
+      // handle error for example
+      // console.error(err);
+      console.log("fetch url function not working");
+      
+    });
+    
   }, []);
       
+  if(rowData.length > 0) {
+    return (
+      <div className="ag-theme-balham" style={{ height: "600px", width: "1200px"}}>
+        <Suspense fallback={<h1>Loading profile...</h1>}>
+          <AgGridReact columnDefs={columns} rowData={rowData} pagination={true}/>
+        </Suspense>
+        <Button color="danger">Register</Button>
+      </div>
+    );
+  } else {
+    return (
+      <div className="ag-theme-balham" style={{ height: "600px", width: "1200px"}}>
+        <div>
+          <h4>Fetching data from stock api...</h4>
+        </div>
       
-  return (
-    <div className="ag-theme-balham" style={{ height: "600px", width: "1200px"}}>
-      <AgGridReact columnDefs={columns} rowData={rowData} pagination={true}/>
-      <Button color="danger">Register</Button>
-    </div>
-  );
+        <Button color="danger">Register</Button>
+      </div>
+    );
+    
+  }
+ 
 }
 
 export default Stocks;

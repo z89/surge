@@ -1,28 +1,91 @@
 import React, { useState, useEffect } from "react";
 import { Button } from 'reactstrap';
-import UserAPI from "./UserAPI";
+import jwt from 'jsonwebtoken';
 
-let result, storageEmail, storagePassword, resultBinary;
+const API_URL = 'http://131.181.190.87:3000'
+
+let result, code, storageEmail, storagePassword, resultBinary;
+
+function UserAPI(props) {
+  
+  const url = `${API_URL}/user/` + props;
+
+     fetch(url,{
+                method: "POST",
+                headers: {aceept: "application/json", "Content-Type": "application/json" },
+                body: JSON.stringify({ email: localStorage.getItem('email'), password: localStorage.getItem('password') })
+              })
+
+        
+            
+    .then((res) => res.json())
+    .then((res) => {
+      
+      if(res.status === 201) {
+        // User created meaning register
+        console.log(res.token);
+      } else if (res.status === 200) {
+        res.json()
+        localStorage.setItem("token", res.token);
+        console.log(res.token);
+      } else if (!(res.ok)) {
+
+        switch(res.status) {
+          case 200: {
+            code = 200;
+            break;
+          }      
+          case 201: {
+            code = 201;
+            return code;
+          }
+          case 400: {
+            code = 400;
+            break;
+          }      
+          case 401: {
+            code = 401;
+            break;
+          }
+          case 403: {
+            code = 403;
+            break;
+          }      
+          case 409: {
+            code = 409;
+            break;
+          }
+          default: {}
+        }
+      
+    }})
+    .catch((err) => {
+      console.log(err);
+    });
+}
 
 export default function Auth() {
+  
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  const [email, setEmail] = useState(localStorage.getItem(storageEmail) || ''); 
+  const [password, setPassword] = useState(localStorage.getItem(storagePassword) || '');
 
+  // Call once the current URL and assign to currentPath 
   useEffect(() => {
     const { pathname } = window.location;
     console.log("New path:", pathname);
     setCurrentPath(pathname);
   }, []);
 
-  let newurl = currentPath.substr(1);
+  
+  // Detect current URL 
+  let url = currentPath.substr(1);
   resultBinary = 0;
-  if(newurl === 'login') {
+  if(url === 'login') {
     resultBinary = 1;
-  } else if (newurl === 'register') {
+  } else if (url === 'register') {
     resultBinary = 0;
   }
-
-  const [email, setEmail] = useState(localStorage.getItem(storageEmail) || ''); 
-  const [password, setPassword] = useState(localStorage.getItem(storagePassword) || '');
 
   storageEmail = 'email';
   storagePassword = 'password';
@@ -41,7 +104,6 @@ export default function Auth() {
     setPassword('');
   }
 
- 
   return (
     <div>
       <h1>{result}</h1>
@@ -53,7 +115,8 @@ export default function Auth() {
         <label htmlFor="password">Enter Password: </label><br/>
         <input type="password" value={password} onChange={updatePassword} id="password" /><br/>
 
-        <Button onClick={() => {UserAPI(newurl)}} color="success">{result} user</Button><br/> 
+        <Button onClick={() => {UserAPI(url)}} color="success">{result} user</Button><br/> 
+       
         <Button onClick={clearStorage}  color="danger">Clear storage from register details</Button>
       </form>
        
