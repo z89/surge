@@ -7,61 +7,70 @@ const API_URL = 'http://131.181.190.87:3000'
 let result, code, storageEmail, storagePassword, resultBinary;
 
 function UserAPI(props) {
-  
+  let tempStatus = 0;
   const url = `${API_URL}/user/` + props;
 
-     fetch(url,{
+     return fetch(url,{
                 method: "POST",
                 headers: {aceept: "application/json", "Content-Type": "application/json" },
                 body: JSON.stringify({ email: localStorage.getItem('email'), password: localStorage.getItem('password') })
               })
-
-        
-            
-    .then((res) => res.json())
+      .then((res) => {
+       
+        tempStatus = res.status;
+        console.log(res.status);
+        return res.json();
+      })        
     .then((res) => {
-      
-      if(res.status === 201) {
-        // User created meaning register
-        console.log(res.token);
-      } else if (res.status === 200) {
-        res.json()
+      localStorage.setItem("props", props);
+      if(props === 'login' && tempStatus === 200) {
+        console.log("login detected");
+        Authorization();
+        localStorage.setItem("status", tempStatus);
         localStorage.setItem("token", res.token);
-        console.log(res.token);
-      } else if (!(res.ok)) {
+    
+      } else if (props === 'register' && tempStatus === 201) {
+        console.log("register detected");
+        localStorage.setItem("status", tempStatus);
+        localStorage.removeItem("token");
+      }
+     
 
-        switch(res.status) {
-          case 200: {
-            code = 200;
-            break;
-          }      
-          case 201: {
-            code = 201;
-            return code;
-          }
-          case 400: {
-            code = 400;
-            break;
-          }      
-          case 401: {
-            code = 401;
-            break;
-          }
-          case 403: {
-            code = 403;
-            break;
-          }      
-          case 409: {
-            code = 409;
-            break;
-          }
-          default: {}
-        }
-      
-    }})
+    })
     .catch((err) => {
       console.log(err);
     });
+    
+}
+
+function Authorization() {
+  let status = localStorage.getItem("status");
+  let props = localStorage.getItem("props");
+
+  if(status === 200 && props === 'login') {
+    console.log("200 reached in auth");
+
+    let token = localStorage.getItem("token");
+
+    const url = `${API_URL}/route`;
+  
+    const headers = {
+      accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`
+    }
+  
+    return fetch(url, {headers})
+    .then((res) => res.json())
+    .then((res) => {
+      console.log(res);
+    })
+
+  } else if (status === 201 && props === 'register') {
+    console.log("201 reached in auth");
+  }
+ 
+ 
 }
 
 export default function Auth() {
@@ -126,4 +135,33 @@ export default function Auth() {
   
 }
   
-  
+        
+    /*if (!(res.ok)) {
+
+        switch(res.status) {
+          case 200: {
+            code = 200;
+            break;
+          }      
+          case 201: {
+            code = 201;
+            return code;
+          }
+          case 400: {
+            code = 400;
+            break;
+          }      
+          case 401: {
+            code = 401;
+            break;
+          }
+          case 403: {
+            code = 403;
+            break;
+          }      
+          case 409: {
+            code = 409;
+            break;
+          }
+          default: {}
+        }*/
