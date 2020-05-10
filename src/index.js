@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import './index.css';
-//import logo from './logo.svg';
-//import './App.css';
-import App from './app';
+import App from './App';
+
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "ag-grid-community/dist/styles/ag-grid.css";

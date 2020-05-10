@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from 'reactstrap';
-import Stocks from './Stocks'
+import Stocks from '../components/Stocks'
 
 function Home() {
   return (
@@ -11,6 +11,5 @@ function Home() {
     </div>
   );
 }
-
 
 export default Home;

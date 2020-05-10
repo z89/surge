@@ -27,8 +27,6 @@ function Stocks() {
     )
     .then(stocks => setRowData(stocks))
     .catch((err) => {
-      // handle error for example
-      // console.error(err);
       console.log("fetch url function not working");
       
     });
