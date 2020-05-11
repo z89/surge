@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Button } from 'reactstrap';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import FetchAPI from '../components/Auth';
+import FetchAPI from "../components/API"
 
 let storageEmail, storagePassword;
 
-function Register() {
+export default function Register() {
   storageEmail = 'email';
   storagePassword = 'password';
 
@@ -17,23 +16,31 @@ function Register() {
 
   useEffect(() => {localStorage.setItem(storagePassword, password)})  // Use useEffect to store email value in localStorage
   const updatePassword = props => {setPassword(props.target.value)} // update the email with the event (props) argument 
+
+
+  if(localStorage.getItem("authenticated") === 'false') {
+
   
-  return (
-    <div>
-    <h1>Register</h1>
-    <Link to={'/register'}>Not registered? Become a user today!</Link>
-    <form>
-      <label htmlFor="email">Use your email to login</label><br/>
-      <input onChange={updateEmail} value={email} id="email" /><br/>
-
-      <label htmlFor="password">Enter Password: </label><br/>
-      <input type="password" value={password} onChange={updatePassword} id="password" /><br/>
-
-      <Button onClick={() => {FetchAPI('register')}} color="success"> user</Button><br/> 
-
-    </form>
-     
-  </div>
-  )
+    return (
+      <div>
+      <h1>Register</h1>
+      <form>
+        <label htmlFor="email">Use your email to Register</label><br/>
+        <input onChange={updateEmail} value={email} id="email" /><br/>
+  
+        <label htmlFor="password">Enter Password: </label><br/>
+        <input type="password" value={password} onChange={updatePassword} id="password" /><br/>
+  
+        <Button onClick={() => {FetchAPI('register')}} color="success">Register Use</Button><br/> 
+  
+      </form>
+       
+    </div>
+    )
+    
+  } else { 
+    return (
+      <div></div>
+    )
+  }
 }
-export default Register;

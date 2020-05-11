@@ -1,11 +1,10 @@
-
-
 const API_URL = 'http://131.181.190.87:3000'
 
-localStorage.setItem("authenticated", false);
+
 
 export default function FetchAPI(props) {
-
+  localStorage.setItem("authenticated", false);
+  localStorage.setItem("status", 200);
   let status = 0;
   let apiURL = `${API_URL}`;
   let method, headers, body; 
@@ -57,14 +56,16 @@ export default function FetchAPI(props) {
           localStorage.setItem("authenticated", true );
           localStorage.setItem("token", res.token);
           console.log("logged in");
+          window.location.href = "/stocks";
           break;
         }      
         case 201: {
       
           localStorage.setItem("authenticated", false);
-      
+          
           localStorage.removeItem("token")
           console.log("registered user");
+          window.location.href = "/login";
           break;
         }
         case 400: {
@@ -92,22 +93,5 @@ export default function FetchAPI(props) {
         }
       }
   })
-     
-   
-    
+        
 }
-  
-
-function UserLogin() {
-
-}
-
-function UserLogout() {
-
-}
-
-function UserRegister() {
-
-}
-
-

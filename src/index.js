@@ -1,24 +1,49 @@
-import React from 'react';
+import React from "react";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import Login from './pages/Login'
+import Home from './pages/Home'
+import Stocks from './pages/Stocks'
+import Register from './pages/Register'
+import ProtectedRoute from './components/AuthRoute'
+import Header from './Header'
+import Footer from './Footer'
+
+import './style.css'
+
 import ReactDOM from 'react-dom';
-import App from './App';
+import { BrowserRouter } from 'react-router-dom';
 
-import * as serviceWorker from './serviceWorker';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import "ag-grid-community/dist/styles/ag-grid.css";
-import "ag-grid-community/dist/styles/ag-theme-balham.css";
+export default function App() {
+  return (
+    <div className="App">
+    <Router>
+      
+        <Header />
 
-const rootElement = document.getElementById('root');
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
+          <ProtectedRoute exact path="/stocks" component={Stocks} />
+          <Route path="*" component={() => "404 NOT FOUND"} />
+        </Switch>
+
+        <Footer />
+ 
+    </Router>
+    </div>
+  );
+
+  }
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
+<React.StrictMode>
+  <BrowserRouter>
+  <App />
+  </BrowserRouter>
+  
   </React.StrictMode>,
-  
-  rootElement
-  
+  document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+
