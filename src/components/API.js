@@ -1,7 +1,5 @@
 const API_URL = 'http://131.181.190.87:3000'
 
-
-
 export default function FetchAPI(props) {
   localStorage.setItem("authenticated", false);
   localStorage.setItem("status", 200);

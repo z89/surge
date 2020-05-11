@@ -7,15 +7,16 @@ import Register from './pages/Register'
 import ProtectedRoute from './components/AuthRoute'
 import Header from './Header'
 import Footer from './Footer'
+import 'bootstrap/dist/css/bootstrap.css';
 
-import './style.css'
+import './assets/css/style.css'
 
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 export default function App() {
   return (
-    <div className="App">
+    <div className="App container-fluid">
     <Router>
       
         <Header />

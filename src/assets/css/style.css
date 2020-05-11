@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+    background-image: linear-gradient(to left, #4776E6, rgb(111, 84, 233));
+    font-family: 'Arial';
+    font-size: 14px;
+}
+.App{
+    text-align: left;
+}
+.Welcome {
+    color: white;
+    padding-right: 20px;
+    
+}
+.page {
+    border-radius: 5px;
+    background: #fff;
+    padding: 20px;
+    min-height: 600px;
+    
+  
+}
+.Logo {
+    color: #fff;
+}
+.navbar-brand {
+    padding-left: 10px;
+    padding-top: 4px;
+    color: #fff;
+    font-family: 'Roboto';
+    font-size: 25px;
+
+}   
+.navbar-brand:hover {
+    padding-left: 10px;
+    padding-top: 4px;
+    color: #fff;
+    font-family: 'Roboto';
+    font-size: 25px;
+
+}   
+
+.navbar {
+    min-height:80px !important
+}
+
+.welcomeText {
+    margin-right: 20px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #fff;
+}
+.navbar-nav {
+    margin-top: 0px;
+}
+
+.logout {
+    margin-right: 5px;
+    font-size: 14px;
+
+}
+.Link {
+    padding-top: 0px;
+
+}
+
+
+.ColorBox {
+    outline: 2px dashed blue;
+}
+
+
+li {
+float: left;
+}
+
+li a {
+display: block;
+color: #fff;
+text-align: center;
+
+margin-left: 20px;
+margin-top: 0px;
+
+
+text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+text-decoration: none;
+color: rgb(226, 220, 255);
+}

@@ -18,11 +18,10 @@ export default function Login() {
   useEffect(() => {localStorage.setItem(storagePassword, password)})  // Use useEffect to store email value in localStorage
   const updatePassword = props => {setPassword(props.target.value)} // update the email with the event (props) argument 
 
-
   if(localStorage.getItem("authenticated") === 'false') {
 
     return (
-      <div>
+      <div className="page">
       <h1>Login</h1>
       
       <Link to={'/register'}>Not registered? Become a user today!</Link>
