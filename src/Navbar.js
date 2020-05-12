@@ -17,14 +17,9 @@ const Menu = (props) => {
 
           <ul className="navbar-nav mr-auto">
             <div className="row">
-              <div className="col-sm-6">
+              <div className="col-sm-12">
               <li className="nav-item active">
                 <Link to="/">HOME</Link>
-              </li>
-              </div>
-              <div className="col-sm-6">
-              <li className="nav-item">
-              <Link to="/stocks">STOCKS</Link>
               </li>
               </div>
             </div>
@@ -37,7 +32,7 @@ const Menu = (props) => {
           </div>
           <div className="row">
         
-            <div className="col-sm-8 "> <Button className="logout" color="primary" onClick={() => {localStorage.setItem("authenticated", false); setTimeout(() => history.push("/"))}}>LOGOUT</Button> </div>
+            <div className="col-sm-8 "> <Button className="logout" color="primary" onClick={() => {localStorage.setItem("authenticated", false); setTimeout(() => {window.location.reload()})}}>LOGOUT</Button> </div>
             <div className="col-sm-4 "> </div>
           </div>
         </nav>

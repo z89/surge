@@ -25,15 +25,6 @@ export default function FetchAPI(props) {
       body = JSON.stringify({email: localStorage.getItem('email'), password: localStorage.getItem('password')});
       break;
     }
-    case 'authenticate': {
-      if(localStorage.getItem("authenticated") === 'true') {
-        apiURL += `/stocks/authed/AAL`;
-
-        method = "GET";
-        headers =  {aceept: "application/json", "Content-Type": "application/json", Authorization: `Bearer`};
-      }
-      break;
-    }
     default: {
       return;
     }
@@ -54,7 +45,7 @@ export default function FetchAPI(props) {
           localStorage.setItem("authenticated", true );
           localStorage.setItem("token", res.token);
           console.log("logged in");
-          window.location.href = "/stocks";
+          window.location.href = "/";
           break;
         }      
         case 201: {

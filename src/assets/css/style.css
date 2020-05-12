@@ -50,6 +50,14 @@ tr {
 ul.dropdown-menu.open.show {
     text-align: center !important;
 }
+.table tbody tr {
+    color: #fff !important;
+}
+.table tbody tr:hover {
+    
+    background-color: rgba(81, 69, 136, 0.185) !important;
+
+}
 li.dropdown-item {
  
     text-align: center !important;
@@ -138,6 +146,21 @@ a.navbar-brand {
     margin-right: 20px;
     font-size: 14px;
     color: #fff;
+}
+.RowLink {
+    margin-top: -10px;
+    margin-bottom: -10px;
+    margin-right: -10px;
+    margin-left: -10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.RowLinkA {
+    color: #fff !important;
+}
+.RowLinkA:hover {
+    color: rgba(175, 157, 255, 0.767) !important;
+    text-decoration: none;
 }
 .navbar-nav {
     margin-top: 0px;
