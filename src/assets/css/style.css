@@ -7,11 +7,6 @@ body {
     color: #fff;
 }
 
-.table {
-    margin: 0 auto;
-    color: #fff !important;
-    width: 100% !important;
-}
 
 th {
     background-color: rgba(136, 111, 247, 0.281) !important;
@@ -56,10 +51,32 @@ tr {
 ul.dropdown-menu.open.show {
     text-align: center !important;
 }
+
+.table {
+    margin: 0 auto;
+    color: #fff !important;
+    width: 100% !important;
+    margin-top: 20px;
+}
+.footer
+
 .table tbody {
     color: #fff !important;
 }
-
+.table tbody tr {
+    border: 1px solid #fff;
+}
+.table tbody tr td {
+    border: 1px solid #fff;
+    padding: 12px;
+}
+.table thead  {
+    border: 1px solid #fff;
+}
+.table thead tr th  {
+    border: 1px solid #fff;
+    padding: 12px;
+}
 .table tbody tr:hover {
     color: #fff !important;
     background-color: rgba(81, 69, 136, 0.185) !important;

@@ -3,8 +3,10 @@ import React, { useState, useEffect } from "react";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 import '../assets/css/style.css'
-import BootstrapTable from 'react-bootstrap-table-next';
-import paginationFactory from 'react-bootstrap-table2-paginator';
+
+import { MDBTable, MDBTableBody, MDBTableHead } from 'mdbreact';
+import { MDBDataTable } from 'mdbreact';
+
 
 const API_URL = "http://131.181.190.87:3000"
 
@@ -18,72 +20,95 @@ function FetchData(props) {
   if(props.request === 'symbols') {
     columnsDefs = [
       {
-        dataField: 'symbol',
-        text: 'Symbol',
-        style: (column) => {
-          return {
-            width: '100px'
-          }
-        }
+        label: 'Symbol',
+        field: 'symbol',
+        sort: 'asc',
+        width: 150
       },
       {
-        dataField: 'name',
-        text: 'Stock',
-      }, 
+        label: 'Stock',
+        field: 'name',
+        sort: 'asc',
+        width: 150
+      },
       {
-        dataField: 'industry',
-        text: 'Industry',
+        label: 'Industry',
+        field: 'industry',
+        sort: 'asc',
+        width: 150
       },
     ];
   } else {
     if(props.auth === 'true') {
       columnsDefs = [
         {
-          dataField: 'symbol',
-          text: 'Symbol',  
+          label: 'Symbol',
+          field: 'symbol',
+          sort: 'asc',
+          width: 150
         },
         {
-          dataField: 'name',
-          text: 'Stock',
-        }, 
-        {
-          dataField: 'industry',
-          text: 'Industry',
+          label: 'Stock',
+          field: 'name',
+          sort: 'asc',
+          width: 150
         },
         {
-          dataField: 'open',
-          text: 'Open',
+          label: 'Industry',
+          field: 'industry',
+          sort: 'asc',
+          width: 150
         },
         {
-          dataField: 'high',
-          text: 'High',
+          label: 'Open',
+          field: 'open',
+          sort: 'asc',
+          width: 150
         },
         {
-          dataField: 'low',
-          text: 'Low',
+          label: 'High',
+          field: 'high',
+          sort: 'asc',
+          width: 150
         },
         {
-          dataField: 'close',
-          text: 'Close',
+          label: 'Low',
+          field: 'low',
+          sort: 'asc',
+          width: 150
         },
         {
-          dataField: 'volumes',
-          text: 'Volumes',
+          label: 'Close',
+          field: 'close',
+          sort: 'asc',
+          width: 150
+        },
+        {
+          label: 'Volumes',
+          field: 'volumes',
+          sort: 'asc',
+          width: 150
         },
       ];
     } else {
       columnsDefs = [
         {
-          dataField: 'symbol',
-          text: 'Symbol',
+          label: 'Symbol',
+          field: 'symbol',
+          sort: 'asc',
+          width: 150
         },
         {
-          dataField: 'name',
-          text: 'Stock',
-        }, 
+          label: 'Stock',
+          field: 'name',
+          sort: 'asc',
+          width: 150
+        },
         {
-          dataField: 'industry',
-          text: 'Industry',
+          label: 'Industry',
+          field: 'industry',
+          sort: 'asc',
+          width: 150
         },
       ];
     }
@@ -107,6 +132,10 @@ function FetchData(props) {
     )
     .then(data => data.map((stock, index) => {
       if(props.request === 'symbols' && props.link === 'true') {
+        /*
+         symbol: <a className="RowLinkA" href={'/stocks/' + stock.symbol}><div className="RowLink">{stock.symbol}</div></a>,
+          name:  <a className="RowLinkA" href={'/stocks/' + stock.symbol}><div className="RowLink">{stock.name}</div></a>,
+        */
         return {
           symbol: <a className="RowLinkA" href={'/stocks/' + stock.symbol}><div className="RowLink">{stock.symbol}</div></a>,
           name:  <a className="RowLinkA" href={'/stocks/' + stock.symbol}><div className="RowLink">{stock.name}</div></a>,
@@ -159,7 +188,12 @@ function FetchData(props) {
       
   }, [props.request, props.auth, props.link]);
   
-  
+  const data = {
+    columns: columnsDefs,
+    rows: rowData
+  }
+    
+
   if(props.info === 'true') {
     return (
       <div className="container-fluid" >
@@ -177,7 +211,10 @@ function FetchData(props) {
           <div className="col-sm-2"></div>
           <div className="col-sm-8">
             <div className="table table-striped">
-              <BootstrapTable keyField='name' data={rowData} columns={ columnsDefs } pagination={props.page === 'true' ? paginationFactory() : null } hover/>
+            <MDBTable >
+      <MDBTableHead columns={columnsDefs} />
+      <MDBTableBody rows={rowData} />
+    </MDBTable>
             </div>
           </div>
           <div className="col-sm-2"></div>
@@ -201,7 +238,12 @@ function FetchData(props) {
           <div className="col-sm-2"></div>
           <div className="col-sm-8">
             <div className="table table-striped">
-              <BootstrapTable keyField='name' data={rowData} columns={ columnsDefs } pagination={props.page === 'true' ? paginationFactory() : null } hover/>
+            <MDBDataTable
+      striped
+      bordered
+      small
+      data={data}
+    />
             </div>
           </div>
           <div className="col-sm-2"></div>
