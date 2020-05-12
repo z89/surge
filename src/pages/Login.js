@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button } from 'reactstrap';
 import {Link} from "react-router-dom";
-import FetchAPI from "../components/API"
+import FetchAPI from "../components/UserAPI"
 
 let storageEmail, storagePassword;
 

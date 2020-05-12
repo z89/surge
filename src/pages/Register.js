@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button } from 'reactstrap';
-import FetchAPI from "../components/API"
+import FetchAPI from "../components/UserAPI"
 
 let storageEmail, storagePassword;
 

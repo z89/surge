@@ -1,25 +1,110 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
 body {
     background-image: linear-gradient(to left, #4776E6, rgb(111, 84, 233));
-    font-family: 'Arial';
+    font-family: 'Nunito';
     font-size: 14px;
+    color: #fff;
+}
+
+.table {
+    margin: 0 auto;
+    color: #fff !important;
+    width: 90% !important;
+}
+
+th {
+    background-color: rgba(136, 111, 247, 0.281) !important;
+    text-align: center !important;
+}
+tr {
+    text-align: center !important;
+}
+.btn-secondary {
+    background-color: rgba(136, 111, 247, 0.308) !important;
+    border-color: rgba(255, 255, 255, 0.11) !important;
+    text-decoration: none;
+    margin-left: 46px;
+    margin-top: 20px;
+    border: solid 1px gainsboro !important;
+}
+.btn-secondary:hover {
+    background-color: rgba(136, 111, 247, 0.308) !important;
+    border-color: rgba(255, 255, 255, 0.11) !important;
+    text-decoration: none;
+    border: solid 1px gainsboro !important;
+}
+.btn-secondary:focus {
+    background-color: rgba(136, 111, 247, 0.308) !important;
+    border-color: rgba(255, 255, 255, 0.11) !important;
+    box-shadow: none !important;
+    border: solid 1px gainsboro !important;
+}
+
+.dropdown-menu {
+    background-color: rgba(136, 111, 247, 0.308) !important;
+    border: none !important;
+    width: 5rem !important;
+    border: solid 1px gainsboro !important;
+}
+ul.dropdown-menu.open.show {
+    text-align: center !important;
+}
+li.dropdown-item {
+ 
+    text-align: center !important;
+}
+.stock-symbol {
+    color: white;
+}
+.stock-symbol:hover {
+    color: rgba(178, 161, 255, 0.74) !important;
+    text-decoration: none;
+}
+.btn-primary {
+    background-color: rgba(136, 111, 247, 0.308) !important;
+    border-color: rgba(255, 255, 255, 0.11) !important;
+    text-decoration: none;
+    margin-left: 15px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    border: solid 1px gainsboro !important;
+}
+.btn-primary:hover {
+    background-color: rgba(136, 111, 247, 0.493) !important;
+    border-color: rgba(255, 255, 255, 0.11) !important;
+    text-decoration: none;
+    margin-left: 15px !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    border: solid 1px gainsboro !important;
+}
+li.dropdown-item:hover{
+    background-color: rgba(136, 111, 247, 0.308) !important;
+    border: none !important;
+ 
+}
+a.page-link {
+    background-color: rgba(136, 111, 247, 0.308) !important;
+    color: #fff;
+    width: 100%;
+}
+a.page-link {
+    background-color: rgba(136, 111, 247, 0.308) !important;
+    color: #fff;
+    width: 100%;
 }
 .App{
     text-align: left;
 }
-.Welcome {
+.welcomeText {
     color: white;
     padding-right: 20px;
     
 }
-.page {
-    border-radius: 5px;
-    background: #fff;
-    padding: 20px;
-    min-height: 600px;
-    
-  
+
+.footer {
+    color: white;
 }
 .Logo {
     color: #fff;
@@ -28,35 +113,39 @@ body {
     padding-left: 10px;
     padding-top: 4px;
     color: #fff;
-    font-family: 'Roboto';
+    font-family: 'Nunito';
     font-size: 25px;
 
 }   
-.navbar-brand:hover {
+a.navbar-brand:hover {
     padding-left: 10px;
     padding-top: 4px;
     color: #fff;
-    font-family: 'Roboto';
-    font-size: 25px;
+    font-family: 'Nunito';
+    font-size: 20px;
 
 }   
 
-.navbar {
-    min-height:80px !important
+a.navbar-brand {
+    padding-left: 10px;
+    padding-top: 4px;
+    color: #fff;
+    font-family: 'Nunito';
+    font-size: 25px;
 }
 
 .welcomeText {
     margin-right: 20px;
-    margin-top: 10px;
     font-size: 14px;
     color: #fff;
 }
 .navbar-nav {
     margin-top: 0px;
 }
-
+.navbar {
+    height: 100px;
+}
 .logout {
-    margin-right: 5px;
     font-size: 14px;
 
 }

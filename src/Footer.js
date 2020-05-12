@@ -4,7 +4,7 @@ import './assets/css/style.css'
 function Footer() {
   
   return (
-    <div>
+    <div className="footer">
       <hr/>
       <p>this is a footer</p>
     </div>

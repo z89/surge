@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory, Link} from "react-router-dom";
-//import Logo from'./assets/logos/business.svg';
+
 import './assets/css/style.css'
 import { Button } from 'reactstrap';
 
@@ -12,17 +12,24 @@ const Menu = (props) => {
   if (localStorage.getItem("authenticated") === 'true') {
     return (
       <div>
-        <nav class="navbar navbar-expand-lg">
+        <nav className="navbar navbar-expand-lg">
+        <a className="navbar-brand" href="/">stocks.io</a>
 
-          <a class="navbar-brand" href="/">luma.io</a>
-
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-            <a class="nav-link" href="/"> <Link to="/">HOME</Link></a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="/stocks">  <Link to="/stocks">STOCKS</Link></a>
-            </li>
+          <ul className="navbar-nav mr-auto">
+            <div className="row">
+              <div className="col-sm-6">
+              <li className="nav-item active">
+                <Link to="/">HOME</Link>
+              </li>
+              </div>
+              <div className="col-sm-6">
+              <li className="nav-item">
+              <Link to="/stocks">STOCKS</Link>
+              </li>
+              </div>
+            </div>
+          
+          
           </ul>
 
           <div className="row welcomeText">
@@ -41,25 +48,27 @@ const Menu = (props) => {
   }
   else {
     return (
-     <div>
-        <nav class="navbar navbar-expand-lg ">
+      <div>
+      <nav className="navbar navbar-expand-lg">
+      <a className="navbar-brand" href="/">stocks.io</a>
+
+        <ul className="navbar-nav mr-auto">
+          <li className="nav-item active">
+          <a className="nav-link" href="/"> <Link to="/">HOME</Link></a>
+          </li>
+        </ul>
+
+        <div className="row">
+      
+         <div className="col-sm-4 ">   <Button className="logout" color="primary" onClick={() => {setTimeout(() => history.push("/login"))}}>LOGIN</Button> </div>
+            <div className="col-sm-8 ">   <Button className="logout" color="primary" onClick={() => {setTimeout(() => history.push("/register"))}}>REGISTER</Button> </div>
+        
+         
+        </div>
+      </nav>
+
+    </div>
           
-          <a class="navbar-brand" href="/">luma.io</a>
-
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-            <a class="nav-link" href="/"> <Link to="/">HOME</Link></a>
-            </li>
-          </ul>
-
-          <div className="row">
-            <div className="col-sm-4 ">   <Button className="logout" color="success" onClick={() => {setTimeout(() => history.push("/login"))}}>login</Button> </div>
-            <div className="col-sm-8 ">   <Button className="logout" color="primary" onClick={() => {setTimeout(() => history.push("/register"))}}>register</Button> </div>
-          </div>
-
-        </nav>
-
-      </div>
     );    
   }  
 

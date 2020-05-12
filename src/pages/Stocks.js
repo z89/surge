@@ -1,20 +1,48 @@
-import React, { useState, useEffect, Suspense } from "react";
-import { AgGridReact } from "ag-grid-react";
+import React from 'react'
+
+function Stocks(props) {
+ 
+  return(
+    <div>
+ 
+    </div>
+  )
+
+}
+
+export default Stocks;
+
+/*import React, { useState, useEffect} from "react";
 import "ag-grid-community/dist/styles/ag-grid.css";
 import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 import '../assets/css/style.css'
+import BootstrapTable from 'react-bootstrap-table-next';
+import paginationFactory from 'react-bootstrap-table2-paginator';
 
 const API_URL = "http://131.181.190.87:3000"
 
 function Stocks() {
-
   const [rowData, setRowData] = useState([]);
 
-  const columns = [
-    { headerName: "Stock", field: "name", sortable: true, filter: "text"},
-    { headerName: "Symbol", field: "symbol"},
-    { headerName: "Industry", field: "industry"}
-  ]
+  const columnsDefs = [
+    {
+      dataField: 'symbol',
+      text: 'Symbol',
+      style: (column) => {
+        return {
+          width: '100px'
+        }
+      }
+    },
+    {
+      dataField: 'name',
+      text: 'Stock',
+    }, 
+    {
+      dataField: 'industry',
+      text: 'Industry',
+    },
+  ];
 
   useEffect(() => {
     fetch(`${API_URL}/stocks/symbols`)
@@ -23,7 +51,8 @@ function Stocks() {
       return {
         name: stock.name,
         symbol: stock.symbol,
-        industry: stock.industry
+        industry: stock.industry,
+        open: stock.open
       };
     })
     )
@@ -34,29 +63,18 @@ function Stocks() {
     });
     
   }, []);
-      
-  if(rowData.length > 0) {
-    return (
-      <div className="page">
-       <div className="ag-theme-alpine" style={{ height: "600px", width: "600px"}}>
-          <Suspense fallback={<h1>Loading profile...</h1>}>
-            <AgGridReact columnDefs={columns} rowData={rowData} pagination={true}/>
-          </Suspense>
+
+
+  return (
+    <div className="row">
+      <div className="col-sm-12">
+        <div className="table table-striped">
+          <BootstrapTable keyField='symbol' data={ rowData } columns={ columnsDefs } pagination={ paginationFactory() } />
         </div>
       </div>
-    
-    );
-  } else {
-    return (
-      <div className="ag-theme-alpine page" style={{ height: "600px", width: "1200px"}}>
-        <div>
-          <h4>Fetching data from stock api...</h4>
-        </div>
-      </div>
-    );
-    
-  }
- 
+    </div>
+  );
 }
 
 export default Stocks;
+*/

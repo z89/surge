@@ -15,6 +15,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 export default function App() {
+
   return (
     <div className="App container-fluid">
     <Router>
@@ -38,12 +39,10 @@ export default function App() {
   }
 
 ReactDOM.render(
-<React.StrictMode>
   <BrowserRouter>
   <App />
-  </BrowserRouter>
-  
-  </React.StrictMode>,
+  </BrowserRouter>,
+
   document.getElementById('root')
 );
 
