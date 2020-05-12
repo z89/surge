@@ -4,6 +4,7 @@ import { useHistory, Link} from "react-router-dom";
 import './assets/css/style.css'
 import { Button } from 'reactstrap';
 
+
 const Menu = (props) => {
   let history = useHistory();
 
@@ -12,19 +13,12 @@ const Menu = (props) => {
   if (localStorage.getItem("authenticated") === 'true') {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg">
+        <nav className="navbar ColorBox navbar-expand-lg">
+          
         <a className="navbar-brand" href="/">stocks.io</a>
 
           <ul className="navbar-nav mr-auto">
-            <div className="row">
-              <div className="col-sm-12">
-              <li className="nav-item active">
-                <Link to="/">HOME</Link>
-              </li>
-              </div>
-            </div>
-          
-          
+
           </ul>
 
           <div className="row welcomeText">

@@ -10,7 +10,7 @@ body {
 .table {
     margin: 0 auto;
     color: #fff !important;
-    width: 90% !important;
+    width: 100% !important;
 }
 
 th {
@@ -28,6 +28,7 @@ tr {
     margin-top: 20px;
     border: solid 1px gainsboro !important;
 }
+
 .btn-secondary:hover {
     background-color: rgba(136, 111, 247, 0.308) !important;
     border-color: rgba(255, 255, 255, 0.11) !important;
@@ -40,7 +41,12 @@ tr {
     box-shadow: none !important;
     border: solid 1px gainsboro !important;
 }
-
+.high {
+    color: rgb(0, 255, 0) !important;
+}
+.low {
+    color: rgb(255, 140, 140) !important;
+}
 .dropdown-menu {
     background-color: rgba(136, 111, 247, 0.308) !important;
     border: none !important;
@@ -50,11 +56,12 @@ tr {
 ul.dropdown-menu.open.show {
     text-align: center !important;
 }
-.table tbody tr {
+.table tbody {
     color: #fff !important;
 }
+
 .table tbody tr:hover {
-    
+    color: #fff !important;
     background-color: rgba(81, 69, 136, 0.185) !important;
 
 }
@@ -62,13 +69,19 @@ li.dropdown-item {
  
     text-align: center !important;
 }
+.stockTitle {
+    margin-bottom: 30px;
+}
+.stock-title {
+    color: #fff;
+    text-align: left;
+    padding-top: 15px;
+}
 .stock-symbol {
-    color: white;
+    color: #fff;
+    text-align: right;
 }
-.stock-symbol:hover {
-    color: rgba(178, 161, 255, 0.74) !important;
-    text-decoration: none;
-}
+
 .btn-primary {
     background-color: rgba(136, 111, 247, 0.308) !important;
     border-color: rgba(255, 255, 255, 0.11) !important;
@@ -176,7 +189,6 @@ a.navbar-brand {
     padding-top: 0px;
 
 }
-
 
 .ColorBox {
     outline: 2px dashed blue;

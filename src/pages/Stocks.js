@@ -3,11 +3,11 @@ import FetchData from "../components/StockAPI";
 
 function Stocks({match}) {
   let auth = localStorage.getItem("authenticated");
-
   if(auth === 'true') {
     return(
        <div>
-           <FetchData auth={auth} request={match.params.id}/>
+        
+           <FetchData auth={auth} page='false' link='false' info='true' request={match.params.id}/>
         </div>
     );
   } else if (auth === 'false') {
@@ -15,7 +15,7 @@ function Stocks({match}) {
 
       <div>
         <p>Auth to see more data</p>
-         <FetchData auth={auth} request='symbols'/>
+        <FetchData auth={auth} page='false' link='false' info='true' request={match.params.id}/>
       </div>
     )
   }
