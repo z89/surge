@@ -2,23 +2,25 @@ import React from 'react'
 import FetchData from "../components/StockAPI";
 
 function Stocks({match}) {
-  let auth = localStorage.getItem("authenticated");
-  if(auth === 'true') {
-    return(
-       <div>
-        
-           <FetchData auth={auth} page='false' link='false' info='true' request={match.params.id}/>
+  if(localStorage.getItem("authenticated") !== null) {
+    let auth = localStorage.getItem("authenticated");
+    if(auth === 'true') {
+      return(
+        <div>
+            <FetchData auth={auth} symbol={match.params.id} request="authed"/>
+          </div>
+      );
+    } else if (auth === 'false') {
+      return (
+        <div>
+          <FetchData auth={auth} symbol={match.params.id} request="authed"/>
         </div>
-    );
-  } else if (auth === 'false') {
-    return (
-
-      <div>
-        <p>Auth to see more data</p>
-        <FetchData auth={auth} page='false' link='false' info='true' request={match.params.id}/>
-      </div>
-    )
+      )
+    }
+  } else {
+    localStorage.setItem("authenticated", 'false');
   }
+  
  
 }
 

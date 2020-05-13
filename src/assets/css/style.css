@@ -73,6 +73,9 @@ ul.dropdown-menu.open.show {
 .table thead  {
     border: 1px solid #fff;
 }
+[data-test="table-foot"] {
+    display: none;
+}
 .table thead tr th  {
     border: 1px solid #fff;
     padding: 12px;

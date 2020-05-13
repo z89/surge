@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button } from 'reactstrap';
 import {Link} from "react-router-dom";
-import FetchAPI from "../components/UserAPI"
+import UserAPI from "../components/UserAPI"
 
 let storageEmail, storagePassword;
 
@@ -32,7 +32,7 @@ export default function Login() {
         <label htmlFor="password">Enter Password: </label><br/>
         <input type="password" value={password} onChange={updatePassword} id="password" /><br/>
   
-        <Button onClick={() => {FetchAPI('login')}} color="success">Login User</Button><br/> 
+        <Button onClick={() => {UserAPI('login')}} color="success">Login User</Button><br/> 
   
       </form>
        

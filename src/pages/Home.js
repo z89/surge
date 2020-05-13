@@ -3,13 +3,19 @@ import '../assets/css/style.css'
 import FetchData from "../components/StockAPI";
 
 export default function Home() {
-  let auth = localStorage.getItem("authenticated");
+  if(localStorage.getItem("authenticated") !== null) {
+    let auth = localStorage.getItem("authenticated");
 
-  return(
-    <div>
-        <FetchData auth={auth} page='true' link='true' info='false' request='symbols'/>
-     </div>
- );
+    return(
+      <div>
+          <FetchData auth={auth} link='true' home='true' request='symbols' all='true'/>
+       </div>
+   );
+  } else {
+    localStorage.setItem("authenticated", 'false');
+    
+  }
+
    
   
  
