@@ -1,8 +1,6 @@
 const API_URL = 'http://131.181.190.87:3000'
 
 export default function FetchAPI(props) {
-  localStorage.setItem("authenticated", false);
-  localStorage.setItem("status", 200);
   let status = 0;
   let apiURL = `${API_URL}`;
   let method, headers, body; 
@@ -74,6 +72,7 @@ export default function FetchAPI(props) {
           break;
         }
         case 409: {
+          localStorage.setItem("errormsg", 'User already exists')
           console.log("User Exists");
           break;
         }

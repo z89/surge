@@ -9,7 +9,6 @@ body {
 
 
 th {
-    background-color: rgba(136, 111, 247, 0.281) !important;
     text-align: center !important;
 }
 tr {
@@ -51,7 +50,9 @@ tr {
 ul.dropdown-menu.open.show {
     text-align: center !important;
 }
-
+.chartjs-size-monitor {
+    color: #fff !important
+}
 .table {
     margin: 0 auto;
     color: #fff !important;
@@ -102,16 +103,17 @@ li.dropdown-item {
     text-align: right;
 }
 
-.btn-primary {
+.logout {
     background-color: rgba(136, 111, 247, 0.308) !important;
     border-color: rgba(255, 255, 255, 0.11) !important;
     text-decoration: none;
     margin-left: 15px !important;
     padding-left: 15px !important;
     padding-right: 15px !important;
+    margin-top: 0px;
     border: solid 1px gainsboro !important;
 }
-.btn-primary:hover {
+.logout:hover {
     background-color: rgba(136, 111, 247, 0.493) !important;
     border-color: rgba(255, 255, 255, 0.11) !important;
     text-decoration: none;
@@ -120,6 +122,35 @@ li.dropdown-item {
     padding-right: 15px !important;
     border: solid 1px gainsboro !important;
 }
+.authorised-only {
+    color: rgb(255, 57, 57);
+}
+.btn-success {
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+}
+.btn-info {
+    padding-left: 60px !important;
+    padding-right: 60px !important;
+}
+.form-head {
+    color: white;
+  
+}
+.form-head-r {
+    color: white;
+    padding-bottom: 76px;
+}
+.form-link {
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    
+}
+.form-label {
+    color: #fff;
+}
+
 li.dropdown-item:hover{
     background-color: rgba(136, 111, 247, 0.308) !important;
     border: none !important;
@@ -161,9 +192,9 @@ a.page-link {
 a.navbar-brand:hover {
     padding-left: 10px;
     padding-top: 4px;
-    color: #fff;
+    color:rgba(255, 255, 255, 0.651);
     font-family: 'Nunito';
-    font-size: 20px;
+    font-size: 25px;
 
 }   
 
@@ -201,10 +232,7 @@ a.navbar-brand {
 .navbar {
     height: 100px;
 }
-.logout {
-    font-size: 14px;
 
-}
 .Link {
     padding-top: 0px;
 

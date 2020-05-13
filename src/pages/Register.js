@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Button } from 'reactstrap';
-import FetchAPI from "../components/UserAPI"
+import UserAPI from "../components/UserAPI"
 
 let storageEmail, storagePassword;
 
-export default function Register() {
+export default function Login() {
   storageEmail = 'email';
   storagePassword = 'password';
 
@@ -17,24 +17,37 @@ export default function Register() {
   useEffect(() => {localStorage.setItem(storagePassword, password)})  // Use useEffect to store email value in localStorage
   const updatePassword = props => {setPassword(props.target.value)} // update the email with the event (props) argument 
 
-  if(localStorage.getItem("authenticated") === 'false') {  
+  if(localStorage.getItem("authenticated") === 'false') {
     return (
-      <div className="page">
-      <h1>Register</h1>
-      <form>
-        <label htmlFor="email">Use your email to Register</label><br/>
-        <input onChange={updateEmail} value={email} id="email" /><br/>
-  
-        <label htmlFor="password">Enter Password: </label><br/>
-        <input type="password" value={password} onChange={updatePassword} id="password" /><br/>
-  
-        <Button onClick={() => {FetchAPI('register')}} color="success">Register Use</Button><br/> 
-  
-      </form>
-       
-    </div>
+      <div>
+        <div className="row text-center">
+          <div className="col-sm-2"></div>
+          <div className="col-sm-8">
+          <h1 className="form-head-r">REGISTER</h1>
+          
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label"><div className="form-label">Choose an email:</div></label>
+              <div class="col-sm-8">
+                <input type="email" class="form-control" onChange={updateEmail} value={email} id="email" placeholder="Enter Email"/>
+              </div>
+              </div>
+              <div class="form-group row">
+              <label class="col-sm-4 col-form-label"><div className="form-label">Choose a password:</div></label>
+              <div class="col-sm-8">
+                <input type="password" value={password} onChange={updatePassword} id="password" placeholder="Enter password" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <Button onClick={() => {UserAPI('register')}} color="info">Register User</Button><br/> 
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     )
-    
+    // Authenticated & Doesn't need to register
   } else { 
     return (
       <div></div>
