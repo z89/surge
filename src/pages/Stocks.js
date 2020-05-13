@@ -5,11 +5,27 @@ function Stocks({match}) {
   if(localStorage.getItem("authenticated") !== null) {
     let auth = localStorage.getItem("authenticated");
     if(auth === 'true') {
-      return(
-        <div>
-            <FetchData auth={auth} symbol={match.params.id} request="authed"/>
-          </div>
-      );
+      if(localStorage.getItem('filter') === 'true') {
+        console.log("filas")
+        return(
+          <div>
+             
+             <FetchData auth={auth} info='true' symbol={match.params.id} request="authed"/>
+            </div>
+        );
+        
+      } else {
+        console.log("filas")
+        return(
+          <div>
+             <FetchData auth={auth} info='true' symbol={match.params.id} request="authed"/>
+              
+            </div>
+        );
+        
+      }
+    
+     
     } else if (auth === 'false') {
       return (
         <div>

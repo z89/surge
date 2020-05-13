@@ -34,6 +34,7 @@ export default function App() {
     localStorage.setItem("low", '');
     localStorage.setItem("close", '');
     localStorage.setItem("volumes", '');
+    
     return (
       <div>
 
@@ -54,7 +55,7 @@ export default function App() {
             <Route exact path="/stocks/:id" component={Stocks} />
             <Route path="*" component={() => "404 NOT FOUND"} />
           </Switch>
-  
+      
       </Router>
       </div>
     );
