@@ -1,2 +1,2 @@
-# surge
-SURGE - An assessment item at Queensland University of Technology. Designed & built this frontend within a week along with the API that feeds this front-end NYSE data.
+# luma.io
+The project was originally called luma.io and then changed to surge.io due to conflicts, so enjoy the old version in the luma.io spirit :) 
