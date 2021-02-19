@@ -21,8 +21,6 @@ SURGE - An assessment item at the Queensland University of Technology. This was 
 # surge [new version]
 I plan to update the project originally created
 
-## Technologies used in this project:
-
 ### Front-End:
 + Yet to Decide
 
