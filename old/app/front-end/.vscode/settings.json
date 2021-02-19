@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "*.js": "javascriptreact"
+    }
+}
+{
+    "insize": 4,
+    "inchar": " ",
+    "bracepadding": false,
+    "wrap": 80
+}
