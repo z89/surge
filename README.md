@@ -17,12 +17,3 @@ SURGE - An assessment item at the Queensland University of Technology. This was 
 + Knex
 + Helmet
 + JWT Authentication
-
-# surge [new version]
-I plan to update the project originally created
-
-### Front-End:
-+ Yet to Decide
-
-### Back-End:
-+ Yet to Decide
